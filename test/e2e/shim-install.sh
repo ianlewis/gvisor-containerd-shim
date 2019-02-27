@@ -8,7 +8,7 @@ set -ex
 if [ "${INSTALL_LATEST}" == "1" ]; then
 { # Step 1(release): Install gvisor-containerd-shim
 LATEST_RELEASE=$(wget -qO - https://api.github.com/repos/google/gvisor-containerd-shim/releases | grep -oP '(?<="browser_download_url": ")https://[^"]*' | head -1)
-wget -O gvisor-containerd-shim
+wget -O gvisor-containerd-shim ${LATEST_RELEASE}
 chmod +x gvisor-containerd-shim
 sudo mv gvisor-containerd-shim /usr/local/bin/gvisor-containerd-shim
 }
